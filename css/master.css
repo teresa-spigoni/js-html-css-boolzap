@@ -14,7 +14,6 @@
 }
 
 img{
-  height: 50px;
   border-radius: 50%;
 }
 /* /utility */
@@ -62,6 +61,7 @@ img{
 }
 
 .user a img{
+  height: 50px;
   vertical-align: -18px;
 }
 
@@ -118,6 +118,7 @@ img{
   height: 50px;
   text-align: center;
   padding-top: 12px;
+  background: #fafafa;
 }
 
 .search a i{
@@ -138,4 +139,21 @@ img{
   width: 100%;
   height: calc(100% - 50px);
   background: #fff;
+}
+
+.box-chat{
+  width: 100%;
+  height: 80px;
+  padding: 10px 0 10px 15px;
+  border-bottom: 1px solid #fafafa;
+}
+
+.box-chat a img{
+  height: 60px;
+  margin-right: 15px;
+  vertical-align: top;
+}
+
+.box-chat:hover{
+  background: #dadcdc;
 }
