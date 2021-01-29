@@ -1,3 +1,4 @@
+/* utility */
 *{
   box-sizing: border-box;
   margin: 0;
@@ -16,11 +17,13 @@ img{
   height: 50px;
   border-radius: 50%;
 }
+/* /utility */
 
 #root{
   position: relative;
   width: 100vw;
   height: 100vh;
+  font-family: 'Roboto', sans-serif;
   background: linear-gradient(to bottom, #009788 15%, #dbdbd3 15%);
 }
 
@@ -59,7 +62,7 @@ img{
 }
 
 .user img{
-  vertical-align: -20px;
+  vertical-align: -18px;
 }
 
 .user i{
@@ -71,7 +74,35 @@ img{
 .notifications{
   width: 100%;
   height: 80px;
+  padding: 15px;
   background: #8edafc;
+}
+
+.bell{
+  display: inline-block;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  text-align: center;
+  background: #fff;
+}
+
+.bell i{
+  font-size: 20px;
+  margin-top: 15px;
+  color: #8edafc;
+}
+
+.bell-text{
+  display: inline-block;
+  height: 60px;
+  font-size: 12px;
+  vertical-align: -5px;
+  margin-left: 10px;
+}
+
+.bell-text a{
+  color: #498ba6;
 }
 
 .sidebar-bottom{
