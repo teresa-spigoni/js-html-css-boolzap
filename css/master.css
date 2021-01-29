@@ -137,6 +137,7 @@ img{
 .chats{
   width: 100%;
   height: calc(100% - 50px);
+  overflow-y: scroll;
   background: #fff;
 }
 
@@ -144,7 +145,7 @@ img{
   width: 100%;
   height: 80px;
   padding: 10px 0 10px 15px;
-  border-bottom: 1px solid #fafafa;
+  border-bottom: 2px solid #fafafa;
 }
 
 .box-chat a img{
@@ -198,9 +199,10 @@ img{
 
 .main-center{
   position: relative;
- width: 100%;
- height: calc(100% - 150px);
- background: url("../img/chat-background.jpg");
+  width: 100%;
+  height: calc(100% - 150px);
+  overflow-y: scroll;
+  background: url("../img/chat-background.jpg");
 }
 
 .message-box{
@@ -233,5 +235,21 @@ img{
 }
 
 .main-bottom{
+  width: 100%;
+  min-height: 80px;
+  padding: 15px 50px;
+  background: #eaeaea;
+}
 
+.main-bottom a i{
+  color: #737678;
+  font-size: 25px;
+  margin-top: 15px;
+}
+
+.main-bottom input{
+  width: 90%;
+  padding: 15px;
+  border: none;
+  border-radius: 3px;
 }
