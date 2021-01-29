@@ -1,3 +1,5 @@
+/* TODO: REFACTORING */
+
 /* utility */
 *{
   box-sizing: border-box;
@@ -156,6 +158,7 @@ img{
 
 .box-chat:hover{
   background: #dadcdc;
+  cursor: pointer;
 }
 
 .main{
@@ -198,11 +201,16 @@ img{
 }
 
 .main-center{
-  position: relative;
   width: 100%;
   height: calc(100% - 150px);
-  overflow-y: scroll;
   background: url("../img/chat-background.jpg");
+}
+
+.messages{
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow-y: scroll;
 }
 
 .message-box{
