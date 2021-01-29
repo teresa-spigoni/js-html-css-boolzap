@@ -61,11 +61,11 @@ img{
   padding: 10px;
 }
 
-.user img{
+.user a img{
   vertical-align: -18px;
 }
 
-.user i{
+.user a i{
   font-size: 20px;
   margin: 15px 10px 10px 10px;
   color: #b1b1b1;
@@ -87,7 +87,7 @@ img{
   background: #fff;
 }
 
-.bell i{
+.bell a i{
   font-size: 20px;
   margin-top: 15px;
   color: #8edafc;
@@ -113,8 +113,25 @@ img{
 }
 
 .search{
+  position: relative;
   width: 100%;
   height: 50px;
+  text-align: center;
+  padding-top: 12px;
+}
+
+.search a i{
+  position: absolute;
+  top: 17px;
+  left: 30px;
+  color: #b9b9b9;
+}
+
+.search input{
+  width: calc(100% - 30px);
+  padding: 5px 10px 5px 50px;
+  border: none;
+  border-radius: 3px;
 }
 
 .chats{
