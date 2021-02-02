@@ -215,6 +215,7 @@ img{
 }
 
 .message-box{
+  clear: both;
   position: relative;
   width: 200px;
   font-size: 14px;
@@ -236,11 +237,12 @@ img{
 }
 
 .my-messages{
-  margin-left: 540px;
+  float: right;
   background: #d9f8bf;
 }
 
 .contact-messages{
+  float: left;
   background: #fff;
 }
 
