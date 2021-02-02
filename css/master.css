@@ -214,9 +214,7 @@ img{
 }
 
 .message-box{
-  position: absolute;
   width: 200px;
-  height: 60px;
   font-size: 14px;
   padding: 16px 13px;
   border-radius: 10px;
@@ -231,14 +229,10 @@ img{
 }
 
 .my-messages{
-  right: 20px;
-  bottom: 100px;
   background: #d9f8bf;
 }
 
 .contact-messages{
-  left: 20px;
-  bottom: 20px;
   background: #fff;
 }
 

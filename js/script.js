@@ -89,10 +89,12 @@ new Vue({
     			}
     		],
     	}
-    ]
+    ],
+    contactIndex: 0
   },
-  methods: {
 
+  methods: {
+    
   }
 });
 Vue.config.devtools = true;
