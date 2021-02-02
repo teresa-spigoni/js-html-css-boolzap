@@ -98,12 +98,54 @@ new Vue({
     changeContact: function (index) {
       this.contactIndex = index
     },
+    addZero: function (x) {
+      if (x < 10) {
+        x = ('0' + x);
+      }
+      return x;
+    },
+    hour: function () {
+      var d = new Date();
+      var hm = d.getHours() + ':' + this.addZero(d.getMinutes());
+      return hm;
+    },
     sendMessage: function () {
       if (this.myMessage !== '') {
-        this.contacts[this.contactIndex].messages.push({date: 'now', text: this.myMessage, status: 'sent'});
-        setTimeout(() => {
-          this.contacts[this.contactIndex].messages.push({date: 'now', text: 'OK', status: 'received'})
-        }, 1000);
+        this.contacts[this.contactIndex].messages.push({date: this.hour(), text: this.myMessage, status: 'sent'});
+
+        if (this.myMessage.toLowerCase().includes('ciao')) {
+          setTimeout(() => {
+            this.contacts[this.contactIndex].messages.push({date: this.hour(), text: 'Ciao!', status: 'received'})
+          }, 2000);
+        } else if (this.myMessage.toLowerCase().includes('come stai')) {
+          setTimeout(() => {
+            this.contacts[this.contactIndex].messages.push({date: this.hour(), text: 'Io sto bene e tu?', status: 'received'})
+          }, 2000);
+        } else if (this.myMessage.toLowerCase().includes('hey')) {
+          setTimeout(() => {
+            this.contacts[this.contactIndex].messages.push({date: this.hour(), text: 'Hey!', status: 'received'})
+          }, 2000);
+        } else if (this.myMessage.toLowerCase().includes('come va')) {
+          setTimeout(() => {
+            this.contacts[this.contactIndex].messages.push({date: this.hour(), text: 'Tutto bene e tu?', status: 'received'})
+          }, 2000);
+        } else if (this.myMessage.toLowerCase().includes('come ti chiami')) {
+          setTimeout(() => {
+            this.contacts[this.contactIndex].messages.push({date: this.hour(), text: 'Mi chiamo ' + this.contacts[this.contactIndex].name + ', ti sei dimenticat*?' , status: 'received'})
+          }, 2000);
+        } else if (this.myMessage.toLowerCase().includes('che ore sono')) {
+          setTimeout(() => {
+            this.contacts[this.contactIndex].messages.push({date: this.hour(), text: 'Sono le ' + this.hour(), status: 'received'})
+          }, 2000);
+        } else if (this.myMessage.toLowerCase().includes('grazie')) {
+          setTimeout(() => {
+            this.contacts[this.contactIndex].messages.push({date: this.hour(), text: 'Non c\'è di che!', status: 'received'})
+          }, 2000);
+        } else {
+          setTimeout(() => {
+            this.contacts[this.contactIndex].messages.push({date: this.hour(), text: 'Ok', status: 'received'})
+          }, 2000);
+        }
         this.myMessage = '';
       }
     }
