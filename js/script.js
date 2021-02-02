@@ -101,7 +101,7 @@ new Vue({
     sendMessage: function () {
       if (this.myMessage !== '') {
         this.contacts[this.contactIndex].messages.push({date: 'now', text: this.myMessage, status: 'sent'});
-        setTimeout(function () {
+        setTimeout(() => {
           this.contacts[this.contactIndex].messages.push({date: 'now', text: 'OK', status: 'received'})
         }, 1000);
         this.myMessage = '';
