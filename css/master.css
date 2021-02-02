@@ -1,5 +1,3 @@
-/* TODO: REFACTORING */
-
 /* utility */
 *{
   box-sizing: border-box;
@@ -11,8 +9,36 @@
   display: flex;
 }
 
+.f-left{
+  float: left;
+}
+
+.f-right{
+  float: right;
+}
+
 .sp-btwn{
   justify-content: space-between;
+}
+
+.rel{
+  position: relative;
+}
+
+.abs{
+  position: absolute;
+}
+
+.scroll{
+  overflow-y: scroll;
+}
+
+.w-100-perc{
+  width: 100%;
+}
+
+.h-50px{
+  height: 50px;
 }
 
 img{
@@ -21,7 +47,6 @@ img{
 /* /utility */
 
 #root{
-  position: relative;
   width: 100vw;
   height: 100vh;
   font-family: 'Roboto', sans-serif;
@@ -29,40 +54,37 @@ img{
 }
 
 .container{
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
   width: 80%;
   min-width: 950px;
   height: 95%;
   min-height: 80px;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
   background: #fff;
 }
 
+/* SIDEBAR */
+
 .sidebar{
-  position: relative;
   width: 35%;
   height: 100%;
   background: #eaeaea;
-  float: left;
 }
 
+/* sidebar top */
+
 .sidebar-top{
-  position: absolute;
-  top: 0;
-  width: 100%;
   min-height: 150px;
+  top: 0;
 }
 
 .user{
-  width: 100%;
   min-height: 70px;
   padding: 10px;
 }
 
 .user a img{
-  height: 50px;
   vertical-align: -18px;
 }
 
@@ -73,18 +95,16 @@ img{
 }
 
 .notifications{
-  width: 100%;
   height: 80px;
   padding: 15px;
   background: #8edafc;
 }
 
 .bell{
-  display: inline-block;
   width: 50px;
-  height: 50px;
-  border-radius: 50%;
+  display: inline-block;
   text-align: center;
+  border-radius: 50%;
   background: #fff;
 }
 
@@ -97,33 +117,29 @@ img{
 .bell-text{
   display: inline-block;
   height: 60px;
+  margin-left: 10px;
   font-size: 12px;
   vertical-align: -5px;
-  margin-left: 10px;
 }
 
 .bell-text a{
   color: #498ba6;
 }
 
+/* sidebar bottom */
+
 .sidebar-bottom{
-  position: absolute;
-  bottom: 0;
-  width: 100%;
   height: calc(100% - 150px);
+  bottom: 0;
 }
 
 .search{
-  position: relative;
-  width: 100%;
-  height: 50px;
   text-align: center;
   padding-top: 12px;
   background: #fafafa;
 }
 
 .search a i{
-  position: absolute;
   top: 17px;
   left: 30px;
   color: #b9b9b9;
@@ -137,14 +153,11 @@ img{
 }
 
 .chats{
-  width: 100%;
   height: calc(100% - 50px);
-  overflow-y: scroll;
   background: #fff;
 }
 
 .box-chat{
-  width: 100%;
   height: 80px;
   padding: 10px 0 10px 15px;
   border-bottom: 2px solid #fafafa;
@@ -166,36 +179,34 @@ img{
 }
 
 .name-last-text{
-  display: inline-block;
   width: 300px;
-  height: 50px;
-  position: relative;
+  display: inline-block;
   overflow: hidden;
 }
 
 .prev-text{
-  position: absolute;
   top: 20px;
   font-size: 13px;
   color: #ccc;
 }
 
+/* MAIN */
+
 .main{
   width: calc(100% - 35%);
   height: 100%;
   border-left: 1px solid #dadcdc;
-  float: left;
 }
 
+/* main top */
+
 .main-top{
-  width: 100%;
   min-height: 70px;
   padding: 8px 10px;
   background: #eaeaea;
 }
 
 .main-top a img{
-  height: 50px;
   margin-right: 10px;
   vertical-align: -7px;
 }
@@ -219,27 +230,24 @@ img{
   color: #b1b1b1;
 }
 
+/* main center */
+
 .main-center{
-  width: 100%;
   height: calc(100% - 150px);
   background: url("../img/chat-background.jpg");
 }
 
 .messages{
-  padding: 20px;
-  position: relative;
-  width: 100%;
   height: 100%;
-  overflow-y: scroll;
+  padding: 20px;
 }
 
 .message-box{
   clear: both;
-  position: relative;
   width: 200px;
-  font-size: 14px;
   margin-bottom: 5px;
   padding: 16px 13px;
+  font-size: 14px;
   border-radius: 10px;
 }
 
@@ -248,25 +256,23 @@ img{
 }
 
 .hour{
-  position: absolute;
-  bottom: 10px;
   right: 10px;
+  bottom: 10px;
   font-size: 10px;
   color: #828084;
 }
 
 .my-messages{
-  float: right;
   background: #d9f8bf;
 }
 
 .contact-messages{
-  float: left;
   background: #fff;
 }
 
+/* main bottom */
+
 .main-bottom{
-  width: 100%;
   min-height: 80px;
   padding: 15px 50px;
   background: #eaeaea;

@@ -12,21 +12,21 @@
   <body>
 
     <!-- root -->
-    <div id="root">
+    <div id="root" class="rel">
 
       <!-- container -->
-      <div class="container">
+      <div class="container abs">
 
         <!-- sidebar -->
-        <div class="sidebar">
+        <div class="sidebar rel f-left">
 
           <!-- sidebar top -->
-          <div class="sidebar-top">
+          <div class="sidebar-top abs w-100-perc">
 
             <!-- user -->
-            <div class="user flex sp-btwn">
+            <div class="user flex sp-btwn w-100-perc">
               <div>
-                <a href="#"><img src="img/avatar_io.jpg" alt=""></a>
+                <a href="#"><img src="img/avatar_io.jpg" alt="" class="h-50px"></a>
                 <span>User Name</span>
               </div>
               <div>
@@ -38,8 +38,8 @@
             <!-- /user -->
 
             <!-- notifications -->
-            <div class="notifications">
-              <div class="bell">
+            <div class="notifications w-100-perc">
+              <div class="bell h-50px">
                 <a href="#"><i class="fa fa-bell-slash"></i></a>
               </div>
               <div class="bell-text">
@@ -53,24 +53,24 @@
           <!-- sidebar top -->
 
           <!-- sidebar bottom -->
-          <div class="sidebar-bottom">
+          <div class="sidebar-bottom abs w-100-perc">
 
             <!-- search -->
-            <div class="search">
-              <a href="#"><i class="fa fa-search" aria-hidden="true"></i></a>
+            <div class="search rel w-100-perc h-50px">
+              <a href="#"><i class="fa fa-search abs" aria-hidden="true"></i></a>
               <input placeholder="Search or start a new chat">
             </div>
             <!-- search -->
 
             <!-- chats -->
-            <div class="chats">
-              <div v-for="(element, index) in contacts" class="box-chat" @click="changeContact(index)">
+            <div class="chats w-100-perc scroll">
+              <div v-for="(element, index) in contacts" class="box-chat w-100-perc" @click="changeConversation(index)">
                 <a href="#"><img :src="'img/avatar' + element.avatar + '.jpg'" alt=""></a>
-                <div class="name-last-text">
+                <div class="name-last-text rel h-50px">
                   <div>
                     {{element.name}}
                   </div>
-                  <div class="prev-text">
+                  <div class="prev-text abs">
                     {{element.messages[element.messages.length - 1].text}}
                   </div>
                 </div>
@@ -85,12 +85,12 @@
         <!-- sidebar -->
 
         <!-- main -->
-        <div class="main">
+        <div class="main f-left">
 
           <!-- main top -->
-          <div class="main-top flex sp-btwn">
+          <div class="main-top flex sp-btwn w-100-perc">
             <div>
-              <a href="#"><img :src="'img/avatar' + contacts[contactIndex].avatar + '.jpg'" alt=""></a>
+              <a href="#"><img :src="'img/avatar' + contacts[contactIndex].avatar + '.jpg'" alt="" class="h-50px"></a>
               <div class="img-side">
                 <div class="name">
                   {{contacts[contactIndex].name}}
@@ -105,18 +105,18 @@
               <a href="#"><i class="fa fa-paperclip"></i></a>
               <a href="#"><i class="fa fa-ellipsis-v"></i></a>
             </div>
-          </div> <!-- da modificare -->
+          </div> 
           <!-- main top -->
 
           <!-- main center -->
-          <div class="main-center">
-            <div class="messages">
+          <div class="main-center w-100-perc">
+            <div class="messages rel w-100-perc scroll">
               <div v-for="item in contacts[contactIndex].messages">
-                <div class="message-box" :class="item.status === 'sent' ? 'my-messages' : 'contact-messages'">
+                <div class="message-box rel" :class="item.status === 'sent' ? 'my-messages f-right' : 'contact-messages f-left'">
                   <div class="text">
                     {{item.text}}
                   </div>
-                  <div class="hour">
+                  <div class="hour abs">
                     {{item.date}}
                   </div>
                 </div>
@@ -126,7 +126,7 @@
           <!-- main center -->
 
           <!-- main bottom -->
-          <div class="main-bottom flex sp-btwn">
+          <div class="main-bottom flex sp-btwn w-100-perc">
             <div>
               <a href="#"><i class="fa fa-smile-o"></i></a>
             </div>
