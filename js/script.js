@@ -90,11 +90,23 @@ new Vue({
     		],
     	}
     ],
-    contactIndex: 0
+    contactIndex: 0,
+    myMessage: ''
   },
 
   methods: {
-    
+    changeContact: function (index) {
+      this.contactIndex = index
+    },
+    sendMessage: function () {
+      if (this.myMessage !== '') {
+        this.contacts[this.contactIndex].messages.push({date: 'now', text: this.myMessage, status: 'sent'});
+        setTimeout(function () {
+          this.contacts[this.contactIndex].messages.push({date: 'now', text: 'OK', status: 'received'})
+        }, 1000);
+        this.myMessage = '';
+      }
+    }
   }
 });
 Vue.config.devtools = true;

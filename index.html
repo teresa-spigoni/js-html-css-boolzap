@@ -64,7 +64,7 @@
 
             <!-- chats -->
             <div class="chats">
-              <div v-for="element in contacts" class="box-chat">
+              <div v-for="(element, index) in contacts" class="box-chat" @click="changeContact(index)">
                 <a href="#"><img :src="'img/avatar' + element.avatar + '.jpg'" alt=""></a> {{element.name}}
               </div>
             </div>
@@ -82,10 +82,10 @@
           <!-- main top -->
           <div class="main-top flex sp-btwn">
             <div>
-              <a href="#"><img src="img/avatar_1.jpg" alt=""></a>
+              <a href="#"><img :src="'img/avatar' + contacts[contactIndex].avatar + '.jpg'" alt=""></a>
               <div class="img-side">
                 <div class="name">
-                  Michele
+                  {{contacts[contactIndex].name}}
                 </div>
                 <div class="last-seen">
                   Last seen today at
@@ -97,14 +97,21 @@
               <a href="#"><i class="fa fa-paperclip"></i></a>
               <a href="#"><i class="fa fa-ellipsis-v"></i></a>
             </div>
-          </div>
+          </div> <!-- da modificare -->
           <!-- main top -->
 
           <!-- main center -->
           <div class="main-center">
             <div class="messages">
               <div v-for="item in contacts[contactIndex].messages">
-                
+                <div class="message-box" :class="item.status === 'sent' ? 'my-messages' : 'contact-messages'">
+                  <div class="text">
+                    {{item.text}}
+                  </div>
+                  <div class="hour">
+                    {{item.date}}
+                  </div>
+                </div>
               </div>
             </div>
           </div>
@@ -115,7 +122,7 @@
             <div>
               <a href="#"><i class="fa fa-smile-o"></i></a>
             </div>
-            <input placeholder="Write a message">
+            <input placeholder="Write a message" v-model="myMessage" @keyup.enter="sendMessage">
             <div>
               <a href="#"><i class="fa fa-microphone"></i></a>
             </div>
