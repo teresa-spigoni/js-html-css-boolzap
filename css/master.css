@@ -249,6 +249,7 @@ img{
   padding: 16px 13px;
   font-size: 14px;
   border-radius: 10px;
+  word-wrap: break-word;
 }
 
 .text{
