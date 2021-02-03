@@ -108,9 +108,8 @@ new Vue({
       return x;
     },
     hour: function () {
-      var d = new Date();
-      var hm = d.getHours() + ':' + this.addZero(d.getMinutes());
-      return hm;
+      let d = new Date();
+      return d.getHours() + ':' + this.addZero(d.getMinutes());
     },
     // funzioni per le risposte automatiche --------------
     answer: function (theText, time) {
