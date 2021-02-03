@@ -132,8 +132,6 @@ new Vue({
               this.answer('Hey!', 1000);
         } else if (this.itIncludes('hello')) {
               this.answer('Hello!', 1000);
-        } else if (this.itIncludes('hi')) {
-              this.answer('Hi!', 1000);
         } else if (this.itIncludes('salve')) {
               this.answer('Salve', 1000);
         } else if (this.itIncludes('buongiorno')) {
