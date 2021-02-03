@@ -58,13 +58,17 @@
             <!-- search -->
             <div class="search rel w-100-perc h-50px">
               <a href="#"><i class="fa fa-search abs" aria-hidden="true"></i></a>
-              <input placeholder="Search or start a new chat">
+              <input placeholder="Search or start a new chat" v-model="contactSearch">
             </div>
             <!-- search -->
 
             <!-- chats -->
             <div class="chats w-100-perc scroll">
-              <div v-for="(element, index) in contacts" class="box-chat w-100-perc" @click="changeConversation(index)">
+
+              <!-- box chat -->
+              <div v-for="(element, index) in contacts" class=" box-chat w-100-perc"
+               @click="changeConversation(index)" v-if="search(element)">
+
                 <a href="#"><img :src="'img/avatar' + element.avatar + '.jpg'" alt=""></a>
                 <div class="name-last-text rel h-50px">
                   <div>
@@ -75,6 +79,8 @@
                   </div>
                 </div>
               </div>
+              <!-- box chat -->
+
             </div>
             <!-- chats -->
 
@@ -105,7 +111,7 @@
               <a href="#"><i class="fa fa-paperclip"></i></a>
               <a href="#"><i class="fa fa-ellipsis-v"></i></a>
             </div>
-          </div> 
+          </div>
           <!-- main top -->
 
           <!-- main center -->

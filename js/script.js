@@ -92,10 +92,17 @@ new Vue({
     	}
     ],
     contactIndex: 0,
-    myMessage: ''
+    myMessage: '',
+    contactSearch: ''
   },
   // METHODS
   methods: {
+    // funzione per cercare un contatto
+    search: function (element) {
+      if (element.name.toLowerCase().startsWith(this.contactSearch.toLowerCase()) || this.contactSearch === '') {
+        return true;
+      }
+    },
     // funzione per cambiare conversazione
     changeConversation: function (index) {
       this.contactIndex = index
@@ -116,6 +123,8 @@ new Vue({
       setTimeout(() => {
         this.contacts[this.contactIndex].messages.push({date: this.hour(), text: theText, status: 'received'})
       }, time);
+      /* per non usare l'()=> si può inserire:
+         let that = this (da inserire poi nel setTimeout al posto del this) */
     },
     itIncludes: function (text) {
       return this.myMessage.toLowerCase().includes(text)
