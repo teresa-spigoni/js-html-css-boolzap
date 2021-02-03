@@ -117,8 +117,17 @@
           <!-- main center -->
           <div class="main-center w-100-perc">
             <div class="messages rel w-100-perc scroll">
-              <div v-for="item in contacts[contactIndex].messages">
+              <div v-for="(item, index) in contacts[contactIndex].messages">
+
+                <!-- message box -->
                 <div class="message-box rel" :class="item.status === 'sent' ? 'my-messages f-right' : 'contact-messages f-left'">
+                  <div class="container-menu">
+                    <i id="arrow" class="fa fa-angle-down abs" @click="activeMenu(index)"></i>
+                    <div class="menu abs d-none">
+                      <div>Message Info</div>
+                      <div @click="delete(index)">Delete Message</div>
+                    </div>
+                  </div>
                   <div class="text">
                     {{item.text}}
                   </div>
@@ -126,6 +135,8 @@
                     {{item.date}}
                   </div>
                 </div>
+                <!-- message box -->
+
               </div>
             </div>
           </div>

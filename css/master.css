@@ -44,6 +44,14 @@
 img{
   border-radius: 50%;
 }
+
+.d-none{
+  display: none;
+}
+
+.d-block{
+  display: block;
+}
 /* /utility */
 
 #root{
@@ -250,6 +258,44 @@ img{
   font-size: 14px;
   border-radius: 10px;
   word-wrap: break-word;
+}
+
+.message-box:hover .container-menu i{
+  display: block;
+}
+
+.container-menu i{
+  top: 10px;
+  right: 10px;
+  color: #828084;
+  display: none;
+  cursor: pointer;
+}
+
+.menu{
+  top: 25px;
+  right: -10px;
+  border-radius: 5px;
+  box-shadow: 0 0 10px #ccc;
+  background: #fff;
+  padding: 10px;
+  z-index: 1;
+  color: #828084;
+}
+
+.menu div:hover{
+  color: #000;
+}
+
+.menu div:first-child{
+  padding-bottom: 7px;
+  border-bottom: 1px solid #828084;
+  cursor: pointer;
+}
+
+.menu div:last-child{
+  padding-top: 5px;
+  cursor: pointer;
 }
 
 .text{

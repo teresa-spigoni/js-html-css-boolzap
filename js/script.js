@@ -184,6 +184,13 @@ new Vue({
         // -----------risposte automatiche-----------------
         this.myMessage = '';
       }
+    },
+    activeMenu: function (index) {
+      let menu = document.getElementsByClassName('menu')[index];
+      menu.classList.toggle('d-block');
+    },
+    delete: function (index) {
+      this.contacts[this.contactIndex].messages.splice(index, 1);
     }
   }
 });
