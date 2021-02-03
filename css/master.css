@@ -21,11 +21,11 @@
   justify-content: space-between;
 }
 
-.rel{
+.position-rel{
   position: relative;
 }
 
-.abs{
+.position-abs{
   position: absolute;
 }
 
@@ -87,28 +87,28 @@ img{
   top: 0;
 }
 
-.user{
+.user-box{
   min-height: 70px;
   padding: 10px;
 }
 
-.user a img{
+.user-box a img{
   vertical-align: -18px;
 }
 
-.user a i{
+.user-box a i{
   font-size: 20px;
   margin: 15px 10px 10px 10px;
   color: #b1b1b1;
 }
 
-.notifications{
+.notifications-box{
   height: 80px;
   padding: 15px;
   background: #8edafc;
 }
 
-.bell{
+.notifications-icon{
   width: 50px;
   display: inline-block;
   text-align: center;
@@ -116,13 +116,13 @@ img{
   background: #fff;
 }
 
-.bell a i{
+.notifications-icon a i{
   font-size: 20px;
   margin-top: 15px;
   color: #8edafc;
 }
 
-.bell-text{
+.notifications-text{
   display: inline-block;
   height: 60px;
   margin-left: 10px;
@@ -130,7 +130,7 @@ img{
   vertical-align: -5px;
 }
 
-.bell-text a{
+.notifications-text a{
   color: #498ba6;
 }
 
@@ -165,29 +165,33 @@ img{
   background: #fff;
 }
 
-.box-chat{
+.chat-box{
   height: 80px;
   padding: 10px 0 10px 15px;
   border-bottom: 2px solid #fafafa;
 }
 
-.box-chat a img{
+.chat-box a img{
   height: 60px;
   margin-right: 15px;
   vertical-align: top;
 }
 
-.box-chat:hover{
+.chat-box:hover{
   background: #dadcdc;
   cursor: pointer;
 }
 
-.box-chat:hover .prev-text{
-  color: #828084;
+.last-message-hour{
+  font-size: 10px;
+  color: #ccc;
+  right: 10px;
+  top: 12px;
 }
 
-.name-last-text{
-  width: 300px;
+.conversation-box{
+  width: 200px;
+  left: 90px;
   display: inline-block;
   overflow: hidden;
 }
@@ -196,6 +200,10 @@ img{
   top: 20px;
   font-size: 13px;
   color: #ccc;
+}
+
+.chat-box:hover .prev-text{
+  color: #828084;
 }
 
 /* MAIN */
@@ -219,7 +227,7 @@ img{
   vertical-align: -7px;
 }
 
-.img-side{
+.conversation-header{
   display: inline-block;
 }
 
@@ -245,12 +253,12 @@ img{
   background: url("../img/chat-background.jpg");
 }
 
-.messages{
+.messages-box{
   height: 100%;
   padding: 20px;
 }
 
-.message-box{
+.text-box{
   clear: both;
   width: 200px;
   margin-bottom: 5px;
@@ -260,16 +268,16 @@ img{
   word-wrap: break-word;
 }
 
-.message-box:hover .container-menu i{
-  display: block;
-}
-
-.container-menu i{
+.menu-container i{
   top: 10px;
   right: 10px;
   color: #828084;
   display: none;
   cursor: pointer;
+}
+
+.text-box:hover .menu-container i{
+  display: block;
 }
 
 .menu{
@@ -309,17 +317,21 @@ img{
   color: #828084;
 }
 
-.my-messages{
+.user-messages{
+  float: right;
   background: #d9f8bf;
 }
 
 .contact-messages{
+  float: left;
   background: #fff;
 }
 
 /* main bottom */
 
 .main-bottom{
+  position: fixed;
+  width: calc(100% - 35%);
   min-height: 80px;
   padding: 15px 50px;
   background: #eaeaea;

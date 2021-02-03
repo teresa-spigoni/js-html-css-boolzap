@@ -12,19 +12,19 @@
   <body>
 
     <!-- root -->
-    <div id="root" class="rel">
+    <div id="root" class="position-rel">
 
       <!-- container -->
-      <div class="container abs">
+      <div class="container position-abs">
 
         <!-- sidebar -->
-        <div class="sidebar rel f-left">
+        <div class="sidebar position-rel f-left">
 
           <!-- sidebar top -->
-          <div class="sidebar-top abs w-100-perc">
+          <div class="sidebar-top position-abs w-100-perc">
 
-            <!-- user -->
-            <div class="user flex sp-btwn w-100-perc">
+            <!-- user box -->
+            <div class="user-box flex sp-btwn w-100-perc">
               <div>
                 <a href="#"><img src="img/avatar_io.jpg" alt="" class="h-50px"></a>
                 <span>User Name</span>
@@ -35,29 +35,29 @@
                 <a href="#"><i class="fa fa-ellipsis-v"></i></a>
               </div>
             </div>
-            <!-- /user -->
+            <!-- /user box -->
 
-            <!-- notifications -->
-            <div class="notifications w-100-perc">
-              <div class="bell h-50px">
+            <!-- notifications box -->
+            <div class="notifications-box w-100-perc">
+              <div class="notifications-icon h-50px">
                 <a href="#"><i class="fa fa-bell-slash"></i></a>
               </div>
-              <div class="bell-text">
+              <div class="notifications-text">
                 <div class="">Receive notifications of new messages</div>
                 <a href="#">Enable desktop notifications</a>
               </div>
             </div>
-            <!-- notifications -->
+            <!-- notifications box -->
 
           </div>
           <!-- sidebar top -->
 
           <!-- sidebar bottom -->
-          <div class="sidebar-bottom abs w-100-perc">
+          <div class="sidebar-bottom position-abs w-100-perc">
 
-            <!-- search -->
-            <div class="search rel w-100-perc h-50px">
-              <a href="#"><i class="fa fa-search abs" aria-hidden="true"></i></a>
+            <!-- search resta in chiusura verticale-->
+            <div class="search position-rel w-100-perc h-50px">
+              <a href="#"><i class="fa fa-search position-abs" aria-hidden="true"></i></a>
               <input placeholder="Search or start a new chat" v-model="contactSearch">
             </div>
             <!-- search -->
@@ -66,15 +66,17 @@
             <div class="chats w-100-perc scroll">
 
               <!-- box chat -->
-              <div v-for="(element, index) in contacts" class=" box-chat w-100-perc"
+              <div v-for="(element, index) in contacts" class="chat-box w-100-perc position-rel"
                @click="changeConversation(index)" v-if="search(element)">
-
-                <a href="#"><img :src="'img/avatar' + element.avatar + '.jpg'" alt=""></a>
-                <div class="name-last-text rel h-50px">
+              <div class="last-message-hour position-abs">
+                {{element.messages[element.messages.length - 1].date}}
+              </div>
+                <a href="#"><img :src="'img/avatar' + element.avatar + '.jpg'" alt="" class="position-abs"></a>
+                <div class="conversation-box position-abs h-50px">
                   <div>
                     {{element.name}}
                   </div>
-                  <div class="prev-text abs" v-if="contacts[index].messages.length > 0">
+                  <div class="prev-text position-abs" v-if="contacts[index].messages.length > 0">
                     {{element.messages[element.messages.length - 1].text}}
                   </div>
                 </div>
@@ -97,12 +99,12 @@
           <div class="main-top flex sp-btwn w-100-perc">
             <div>
               <a href="#"><img :src="'img/avatar' + contacts[contactIndex].avatar + '.jpg'" alt="" class="h-50px"></a>
-              <div class="img-side">
+              <div class="conversation-header">
                 <div class="name">
                   {{contacts[contactIndex].name}}
                 </div>
                 <div class="last-seen" v-if="contacts[contactIndex].messages.length > 0">
-                  Last seen  {{contacts[contactIndex].messages[contacts[contactIndex].messages.length -1].date}}
+                  Last seen  {{lastMessageHour()}}
                 </div>
               </div>
             </div>
@@ -114,25 +116,34 @@
           </div>
           <!-- main top -->
 
-          <!-- main center -->
+          <!-- main center da mettere tutte le classi in :class -->
           <div class="main-center w-100-perc">
-            <div class="messages rel w-100-perc scroll">
+            <div class="messages-box position-rel w-100-perc scroll">
               <div v-for="(item, index) in contacts[contactIndex].messages">
 
                 <!-- message box -->
-                <div class="message-box rel" :class="item.status === 'sent' ? 'my-messages f-right' : 'contact-messages f-left'">
-                  <div class="container-menu">
-                    <i id="arrow" class="fa fa-angle-down abs" @click="activeMenu(index)"></i>
-                    <div class="menu abs d-none">
-                      <div>Message Info</div>
-                      <div @click="deleteMessage(index)">Delete Message</div>
-                    </div>
-                  </div>
+                <div class="text-box position-rel"
+                :class="item.status === 'sent' ? 'user-messages f-right' : 'contact-messages f-left'">
+
+                <!-- :class="{
+                text-box: true,
+                position-rel: true,
+                user-messages: (item.status === 'sent'),
+                contact-messages: (item.status === 'received'),
+                }" NON FUNZIONA -->
+
                   <div class="text">
                     {{item.text}}
                   </div>
-                  <div class="hour abs">
+                  <div class="hour position-abs">
                     {{item.date}}
+                  </div>
+                  <div class="menu-container">
+                    <i class="fa fa-angle-down position-abs" @click="activeMenu(index)"></i>
+                    <div class="menu position-abs d-none">
+                      <div>Message Info</div>
+                      <div @click="deleteMessage(index)">Delete Message</div>
+                    </div>
                   </div>
                 </div>
                 <!-- message box -->
@@ -143,7 +154,7 @@
           <!-- main center -->
 
           <!-- main bottom -->
-          <div class="main-bottom flex sp-btwn w-100-perc">
+          <div class="main-bottom flex sp-btwn">
             <div>
               <a href="#"><i class="fa fa-smile-o"></i></a>
             </div>
