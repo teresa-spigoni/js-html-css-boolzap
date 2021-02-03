@@ -74,7 +74,7 @@
                   <div>
                     {{element.name}}
                   </div>
-                  <div class="prev-text abs">
+                  <div class="prev-text abs" v-if="contacts[index].messages.length > 0">
                     {{element.messages[element.messages.length - 1].text}}
                   </div>
                 </div>
@@ -101,7 +101,7 @@
                 <div class="name">
                   {{contacts[contactIndex].name}}
                 </div>
-                <div class="last-seen">
+                <div class="last-seen" v-if="contacts[contactIndex].messages.length > 0">
                   Last seen  {{contacts[contactIndex].messages[contacts[contactIndex].messages.length -1].date}}
                 </div>
               </div>
@@ -125,7 +125,7 @@
                     <i id="arrow" class="fa fa-angle-down abs" @click="activeMenu(index)"></i>
                     <div class="menu abs d-none">
                       <div>Message Info</div>
-                      <div @click="delete(index)">Delete Message</div>
+                      <div @click="deleteMessage(index)">Delete Message</div>
                     </div>
                   </div>
                   <div class="text">

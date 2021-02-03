@@ -99,7 +99,7 @@ new Vue({
   methods: {
     // funzione per cercare un contatto
     search: function (element) {
-      if (element.name.toLowerCase().startsWith(this.contactSearch.toLowerCase()) || this.contactSearch === '') {
+      if (element.name.toLowerCase().includes(this.contactSearch.toLowerCase()) || this.contactSearch === '') {
         return true;
       }
     },
@@ -189,7 +189,7 @@ new Vue({
       let menu = document.getElementsByClassName('menu')[index];
       menu.classList.toggle('d-block');
     },
-    delete: function (index) {
+    deleteMessage: function (index) {
       this.contacts[this.contactIndex].messages.splice(index, 1);
     }
   }
