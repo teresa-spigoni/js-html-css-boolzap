@@ -107,21 +107,22 @@ new Vue({
     changeConversation: function (index) {
       this.contactIndex = index
     },
-    // metodo per cambiare l'ultimo accesso e l'ora dell'ultimo messaggio
-    lastMessageHour: function () {
+    // metodo per ottenere l'orario dell'ultimo messaggio sul chat-box
+    lastDate: function (element) {
+      return element.messages[element.messages.length - 1].date
+    },
+    // metodo per ottenere la preview dell'ultimo messaggio sul chat-box
+    prevText: function (element) {
+      return element.messages[element.messages.length - 1].text
+    },
+    // metodo per cambiare l'ultimo accesso
+    lastSeen: function () {
       let messages = this.contacts[this.contactIndex].messages;
       return messages[this.contacts[this.contactIndex].messages.length - 1].date
     },
-    // metodi per generare l'ora -----------------------
-    addZero: function (x) {
-      if (x < 10) {
-        x = ('0' + x);
-      }
-      return x;
-    },
+    // metodo per generare l'ora
     hour: function () {
-      let d = new Date();
-      return d.getHours() + ':' + this.addZero(d.getMinutes());
+      return dayjs().format('HH:mm')
     },
     // metodi per le risposte automatiche --------------
     reply: function (theText, time) {
@@ -191,7 +192,7 @@ new Vue({
         this.myMessage = '';
       }
     },
-    // metodo per attivare e disattivare il menu del messaggio
+    // metodo per attivare e disattivare il menu del singolo messaggio
     activeMenu: function (index) {
       let menu = document.getElementsByClassName('menu')[index];
       menu.classList.toggle('d-block');
