@@ -116,22 +116,17 @@
           </div>
           <!-- main top -->
 
-          <!-- main center da mettere tutte le classi in :class -->
+          <!-- main center -->
           <div class="main-center w-100-perc">
             <div class="messages-box position-rel w-100-perc scroll">
               <div v-for="(item, index) in contacts[contactIndex].messages">
 
                 <!-- message box -->
-                <div class="text-box position-rel"
-                :class="item.status === 'sent' ? 'user-messages f-right' : 'contact-messages f-left'">
-
-                <!-- :class="{
-                text-box: true,
-                position-rel: true,
-                user-messages: (item.status === 'sent'),
-                contact-messages: (item.status === 'received'),
-                }" NON FUNZIONA -->
-
+                <div :class="{
+                'text-box' : true,
+                'position-rel' : true,
+                'user-messages' : (item.status === 'sent'),
+                'contact-messages' : (item.status === 'received')}">
                   <div class="text">
                     {{item.text}}
                   </div>
