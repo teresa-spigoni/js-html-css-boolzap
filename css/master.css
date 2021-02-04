@@ -202,7 +202,7 @@ img{
   color: #ccc;
 }
 
-.chat-box:hover .prev-text{
+.chat-box:hover .prev-text, .chat-box:hover .last-message-hour{
   color: #828084;
 }
 
