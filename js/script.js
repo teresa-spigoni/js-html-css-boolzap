@@ -1,6 +1,5 @@
 new Vue({
   el: '#root',
-  // DATA
   data: {
     contactIndex: 0,
     contactSearch: '',
@@ -78,7 +77,7 @@ new Vue({
       // LUISA
     	{
     		name: 'Luisa',
-    		avatar: '_4',
+    		avatar: '_6',
     		visible: true,
     		messages: [
     			{
@@ -92,10 +91,38 @@ new Vue({
     				status: 'received'
     			}
     		],
-    	}
+    	},
+      // CARLO
+      {
+            name: 'Carlo',
+            avatar: '_5',
+            visible: true,
+            messages: [
+                  {
+                        date: '10/01/2020 15:30:55',
+                        text: 'Hey!',
+                        status: 'sent'
+                  },
+                  {
+                        date: '10/01/2020 15:35:06',
+                        text: 'Hola!',
+                        status: 'received'
+                  },
+                  {
+                        date: '10/01/2020 15:50:55',
+                        text: 'A che ora ci vediamo stasera?',
+                        status: 'sent'
+                  },
+                  {
+                        date: '10/01/2020 15:55:00',
+                        text: 'Alle 21:00 in piazza. Non Trdare..',
+                        status: 'received'
+                  }
+
+            ],
+      }
     ]
   },
-  // METHODS
   methods: {
     // metodo per cercare un contatto
     search: function (element) {
@@ -132,63 +159,107 @@ new Vue({
       /* per non usare l'()=> si può inserire:
          let that = this (da inserire poi nel setTimeout al posto del this) */
     },
-    itIncludes: function (text) {
-      return this.myMessage.toLowerCase().includes(text)
-    },
     // metodo per inviare il messaggio e ricevere una risposta automatica
     sendMessage: function () {
       if (this.myMessage !== '') {
         // invio del messaggio
         this.contacts[this.contactIndex].messages.push({date: this.hour(), text: this.myMessage, status: 'sent'});
         // -----------risposte automatiche-----------------
-        if (this.itIncludes('ciao')) {
-              this.reply('Ciao!', 1000);
-        } else if (this.itIncludes('hey')) {
-              this.reply('Hey!', 1000);
-        } else if (this.itIncludes('hello')) {
-              this.reply('Hello!', 1000);
-        } else if (this.itIncludes('salve')) {
-              this.reply('Salve', 1000);
-        } else if (this.itIncludes('buongiorno')) {
-              this.reply('Buongiorno anche a te!', 3000);
-        } else if (this.itIncludes('good morning')) {
-              this.reply('Good morning dear!', 3000);
-        } else if (this.itIncludes('buonasera')) {
-              this.reply('Buonasera!', 2000);
-        } else if (this.itIncludes('good evening')) {
-              this.reply('Good evening!', 2000);
-        } else if (this.itIncludes('buon pomeriggio')) {
-              this.reply('Buon pome!', 2000);
-        } else if (this.itIncludes('good afternoon')) {
-              this.reply('Good afternoon!', 2000);
-        } else if (this.itIncludes('buonanotte')) {
-              this.reply('Buonanotte e sogni d\'oro!', 5000);
-        } else if (this.itIncludes('good night')) {
-              this.reply('Have a good good night!', 4000);
-        } else if (this.itIncludes('come stai')) {
-              this.reply('Io sto bene e tu?', 3000);
-        } else if (this.itIncludes('how are you')) {
-              this.reply('I\'m fine, what about you!', 4000);
-        } else if (this.itIncludes('come va')) {
-              this.reply('Tutto bene e tu?', 3000);
-        } else if (this.itIncludes('what\'s your name')) {
-              this.reply('My name is ' + this.contacts[this.contactIndex].name + ', do you remember?', 1000);
-        } else if (this.itIncludes('come ti chiami')) {
-              this.reply('Mi chiamo ' + this.contacts[this.contactIndex].name + ', ti sei dimenticat*?', 5000);
-        } else if (this.itIncludes('che ore sono')) {
-              this.reply('Sono le ' + this.hour(), 2000);
-        } else if (this.itIncludes('what time is it')) {
-              this.reply('It\'s ' + this.hour(), 2000);
-        } else if (this.itIncludes('grazie')) {
-              this.reply('Non c\'è di che!', 2000);
-        } else if (this.itIncludes('thank you')) {
-              this.reply('You\'re welcome!', 2000);
-        } else if (this.itIncludes('thanks')) {
-              this.reply('You\'re welcome!', 2000);
-        } else {
-              this.reply('Ok', 100);
-        }
-        // -----------risposte automatiche-----------------
+        
+        let msg = this.myMessage.toLowerCase();
+        switch (msg){
+            case 'ciao':
+                  this.reply('Ciao!', 1000);
+            break;
+
+            case 'hey':
+                  this.reply('Hey!', 1000);
+                  break;
+
+            case 'hello':
+                  this.reply('Hello!', 1000);
+                  break;
+
+            case 'salve':
+                  this.reply('Salve!', 1000);
+                  break;
+
+            case 'buongiorno':
+                  this.reply('Buongiorno anche a te!', 3000);
+                  break;
+
+            case 'good morning':
+                  this.reply('Good morning dear!', 3000);
+                  break;
+
+            case 'buonasera':
+                  this.reply('Buonasera!', 2000);
+                  break;
+            
+            case 'good evening':
+                  this.reply('Good evening!', 2000);
+                  break;
+
+            case 'buon pomeriggio':
+                  this.reply('Buon pome!', 2000);
+                  break;
+
+            case 'good afternoon': 
+                  this.reply('Good afternoon!', 2000);
+                  break;
+
+            case 'buonanotte':
+                  this.reply('Buonanotte e sogni d\'oro!', 5000);
+                  break;
+
+            case 'good night':
+                  this.reply('Have a good good night!', 4000);
+                  break;
+
+            case 'come stai':
+                  this.reply('Io sto bene e tu?', 3000);
+                  break;
+
+            case 'how are you':
+                  this.reply('I\'m fine, what about you!', 4000);
+                  break;
+
+            case 'come va':
+                  this.reply('Tutto bene e tu?', 3000);
+                  break;
+
+            case 'what\'s your name':
+                  this.reply('My name is ' + this.contacts[this.contactIndex].name + ', do you remember?', 1000);
+                  break;
+
+            case 'come ti chiami':
+                  this.reply('Mi chiamo ' + this.contacts[this.contactIndex].name + ', ti sei dimenticat*?', 5000);
+                  break;
+
+            case 'che ore sono':
+                  this.reply('Sono le ' + this.hour(), 2000);
+                  break;
+
+            case 'what time is it':
+                  this.reply('It\'s ' + this.hour(), 2000);
+                  break;
+
+            case 'grazie':
+                  this.reply('Non c\'è di che!', 2000);
+                  break;
+
+            case 'thank you':
+                  this.reply('You\'re welcome!', 2000);
+                  break;
+
+            case 'thanks':
+                  this.reply('You\'re welcome!', 2000);
+                  break;
+                  
+            default:
+            this.reply('Ok.', 100)
+            }
+
         this.myMessage = '';
       }
     },

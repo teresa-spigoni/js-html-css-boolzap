@@ -1,178 +1,170 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-  <head>
-    <meta charset="utf-8">
-    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
-    <script src="https://unpkg.com/dayjs@1.8.21/dayjs.min.js"></script>
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="css/master.css">
-    <title>boolzapp</title>
-  </head>
-  <body>
 
-    <!-- root -->
-    <div id="root" class="position-rel">
+<head>
+  <meta charset="utf-8">
+  <!-- Vue.js -->
+  <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+  <!-- Day.js -->
+  <script src="https://unpkg.com/dayjs@1.8.21/dayjs.min.js"></script>
+  <!-- Font -->
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+  <!-- Fontawesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <!-- CSS -->
+  <link rel="stylesheet" href="css/master.css">
+  <!-- Favicon -->
+  <link rel="shortcut icon" href="img/favicon.ico" class="favicon">
+  <title>Boolzapp</title>
+</head>
 
-      <!-- container -->
-      <div class="container position-abs">
+<body>
 
-        <!-- sidebar -->
-        <div class="sidebar position-rel f-left">
+  <div id="root" class="position-rel">
 
-          <!-- sidebar top -->
-          <div class="sidebar-top position-abs w-100-perc">
+    <div class="container position-abs">
 
-            <!-- user box -->
-            <div class="user-box flex sp-btwn w-100-perc">
-              <div>
-                <a href="#"><img src="img/avatar_io.jpg" alt="" class="h-50px"></a>
-                <span>User Name</span>
-              </div>
-              <div>
-                <a href="#"><i class="fa fa-circle-o-notch"></i></a>
-                <a href="#"><i class="fa fa-comment"></i></a>
-                <a href="#"><i class="fa fa-ellipsis-v"></i></a>
-              </div>
-            </div>
-            <!-- /user box -->
+      <!-- Sidebar Section -->
+      <section class="sidebar position-rel f-left">
 
-            <!-- notifications box -->
-            <div class="notifications-box w-100-perc">
-              <div class="notifications-icon h-50px">
-                <a href="#"><i class="fa fa-bell-slash"></i></a>
-              </div>
-              <div class="notifications-text">
-                <div class="">Receive notifications of new messages</div>
-                <a href="#">Enable desktop notifications</a>
-              </div>
-            </div>
-            <!-- notifications box -->
+        <!-- Sidebar Section Top -->
+        <section class="sidebar-top position-abs w-100-perc">
 
-          </div>
-          <!-- sidebar top -->
-
-          <!-- sidebar bottom -->
-          <div class="sidebar-bottom position-abs w-100-perc">
-
-            <!-- search resta in chiusura verticale-->
-            <div class="search position-rel w-100-perc h-50px">
-              <a href="#"><i class="fa fa-search position-abs"></i></a>
-              <input placeholder="Search or start a new chat" v-model="contactSearch">
-            </div>
-            <!-- search -->
-
-            <!-- chats -->
-            <div class="chats w-100-perc scroll">
-
-              <!-- box chat -->
-              <div v-for="(element, index) in contacts" class="chat-box w-100-perc position-rel"
-               @click="changeConversation(index)" v-if="search(element)">
-              <div class="last-message-hour position-abs" v-if="element.messages.length > 0">
-                {{lastDate(element)}}
-              </div>
-                <a href="#"><img :src="'img/avatar' + element.avatar + '.jpg'" alt="" class="position-abs"></a>
-                <div class="conversation-box position-abs h-50px">
-                  <div>
-                    {{element.name}}
-                  </div>
-                  <div class="prev-text position-abs" v-if="element.messages.length > 0">
-                    {{prevText(element)}}
-                  </div>
-                </div>
-              </div>
-              <!-- box chat -->
-
-            </div>
-            <!-- chats -->
-
-          </div>
-          <!-- sidebar bottom -->
-
-        </div>
-        <!-- sidebar -->
-
-        <!-- main -->
-        <div class="main f-left">
-
-          <!-- main top -->
-          <div class="main-top flex sp-btwn w-100-perc">
+          <!-- User Box -->
+          <div class="user-box flex sp-btwn w-100-perc">
             <div>
-              <a href="#"><img :src="'img/avatar' + contacts[contactIndex].avatar + '.jpg'" alt="" class="h-50px"></a>
-              <div class="conversation-header">
-                <div class="name">
-                  {{contacts[contactIndex].name}}
-                </div>
-                <div class="last-seen" v-if="contacts[contactIndex].messages.length > 0">
-                  Last seen  {{lastSeen()}}
-                </div>
-              </div>
+              <a href="#"><img src="img/avatar_io.jpg" alt="" class="h-50px"></a>
+              <span>User Name</span>
             </div>
             <div>
-              <a href="#"><i class="fa fa-search"></i></a>
-              <a href="#"><i class="fa fa-paperclip"></i></a>
+              <a href="#"><i class="fa fa-circle-o-notch"></i></a>
+              <a href="#"><i class="fa fa-comment"></i></a>
               <a href="#"><i class="fa fa-ellipsis-v"></i></a>
             </div>
           </div>
-          <!-- main top -->
 
-          <!-- main center -->
-          <div class="main-center w-100-perc">
-            <div class="messages-box position-rel w-100-perc scroll">
-              <div v-for="(item, index) in contacts[contactIndex].messages">
+          <!-- Notifications Box -->
+          <div class="notifications-box w-100-perc">
+            <div class="notifications-icon h-50px">
+              <a href="#"><i class="fa fa-bell-slash"></i></a>
+            </div>
+            <div class="notifications-text">
+              <div class="">Receive notifications of new messages</div>
+              <a href="#">Enable desktop notifications</a>
+            </div>
+          </div>
 
-                <!-- message box -->
-                <div :class="{
+        </section>
+
+        <!-- Sidebar Section Bottom -->
+        <section class="sidebar-bottom position-abs w-100-perc">
+
+          <!-- Search -->
+          <div class="search position-rel w-100-perc h-50px">
+            <a href="#"><i class="fa fa-search position-abs"></i></a>
+            <input placeholder="Search or start a new chat" v-model="contactSearch">
+          </div>
+
+          <!-- Chats Section -->
+          <section class="chats w-100-perc scroll">
+
+            <!-- Box Chat -->
+            <div v-for="(element, index) in contacts" class="chat-box w-100-perc position-rel"
+              @click="changeConversation(index)" v-if="search(element)">
+              <div class="last-message-hour position-abs" v-if="element.messages.length > 0">
+                {{lastDate(element)}}
+              </div>
+              <a href="#"><img :src="'img/avatar' + element.avatar + '.jpg'" alt="" class="position-abs"></a>
+              <div class="conversation-box position-abs h-50px">
+                <div>
+                  {{element.name}}
+                </div>
+                <div class="prev-text position-abs" v-if="element.messages.length > 0">
+                  {{prevText(element)}}
+                </div>
+              </div>
+            </div>
+
+          </section>
+
+        </section>
+
+      </section>
+
+      <!-- Main Section -->
+      <main class="main f-left">
+
+        <!-- Main Section Top -->
+        <section class="main-top flex sp-btwn w-100-perc">
+          <div>
+            <a href="#"><img :src="'img/avatar' + contacts[contactIndex].avatar + '.jpg'" alt="" class="h-50px"></a>
+            <div class="conversation-header">
+              <div class="name">
+                {{contacts[contactIndex].name}}
+              </div>
+              <div class="last-seen" v-if="contacts[contactIndex].messages.length > 0">
+                Last seen {{lastSeen()}}
+              </div>
+            </div>
+          </div>
+          <div>
+            <a href="#"><i class="fa fa-search"></i></a>
+            <a href="#"><i class="fa fa-paperclip"></i></a>
+            <a href="#"><i class="fa fa-ellipsis-v"></i></a>
+          </div>
+        </section>
+
+        <!-- Main Section Center -->
+        <section class="main-center w-100-perc">
+          <div class="messages-box position-rel w-100-perc scroll">
+            <div v-for="(item, index) in contacts[contactIndex].messages">
+
+              <!-- Message Box -->
+              <div :class="{
                 'text-box' : true,
                 'position-rel' : true,
                 'user-messages' : (item.status === 'sent'),
                 'contact-messages' : (item.status === 'received')}">
-                  <div class="text">
-                    {{item.text}}
-                  </div>
-                  <div class="hour position-abs">
-                    {{item.date}}
-                  </div>
-                  <div class="menu-container">
-                    <i class="fa fa-angle-down position-abs" @click="activeMenu(index)"></i>
-                    <div class="menu position-abs d-none">
-                      <div>Message Info</div>
-                      <div @click="deleteMessage(index)">Delete Message</div>
-                    </div>
+                <div class="text">
+                  {{item.text}}
+                </div>
+                <div class="hour position-abs">
+                  {{item.date}}
+                </div>
+                <div class="menu-container">
+                  <i class="fa fa-angle-down position-abs" @click="activeMenu(index)"></i>
+                  <div class="menu position-abs d-none">
+                    <div>Message Info</div>
+                    <div @click="deleteMessage(index)">Delete Message</div>
                   </div>
                 </div>
-                <!-- message box -->
-
               </div>
+
             </div>
           </div>
-          <!-- main center -->
+        </section>
 
-          <!-- main bottom -->
-          <div class="main-bottom flex sp-btwn">
-            <div>
-              <a href="#"><i class="fa fa-smile-o"></i></a>
-            </div>
-            <input placeholder="Write a message" v-model="myMessage" @keyup.enter="sendMessage">
-            <div>
-              <a href="#"><i class="fa fa-microphone"></i></a>
-            </div>
+        <!-- Main Section Bottom -->
+        <section class="main-bottom flex sp-btwn">
+          <div>
+            <a href="#"><i class="fa fa-smile-o"></i></a>
           </div>
-          <!-- main bottom -->
+          <input placeholder="Write a message" v-model="myMessage" @keyup.enter="sendMessage">
+          <div>
+            <a href="#"><i class="fa fa-microphone"></i></a>
+          </div>
+        </section>
 
-        </div>
-        <!-- main -->
-
-      </div>
-      <!-- /container -->
+      </main>
 
     </div>
-    <!-- /root -->
 
-    <!-- script -->
-    <script src="js/script.js" charset="utf-8"></script>
-    <!-- script -->
+  </div>
 
-  </body>
+  <!-- Script -->
+  <script src="js/script.js" charset="utf-8"></script>
+
+</body>
+
 </html>

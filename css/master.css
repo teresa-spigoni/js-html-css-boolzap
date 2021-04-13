@@ -1,67 +1,67 @@
-/* utility */
-*{
+/* Utility Classes */
+
+* {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
 }
 
-.flex{
+.flex {
   display: flex;
 }
 
-.f-left{
+.f-left {
   float: left;
 }
 
-.f-right{
+.f-right {
   float: right;
 }
 
-.sp-btwn{
+.sp-btwn {
   justify-content: space-between;
 }
 
-.position-rel{
+.position-rel {
   position: relative;
 }
 
-.position-abs{
+.position-abs {
   position: absolute;
 }
 
-.scroll{
+.scroll {
   overflow-y: scroll;
 }
 
-.w-100-perc{
+.w-100-perc {
   width: 100%;
 }
 
-.h-50px{
+.h-50px {
   height: 50px;
 }
 
-img{
+img {
   border-radius: 50%;
 }
 
-.d-none{
+.d-none {
   display: none;
 }
 
-.d-block{
+.d-block {
   display: block;
 }
-/* /utility */
 
-#root{
+#root {
   width: 100vw;
   height: 100vh;
   font-family: 'Roboto', sans-serif;
   background: linear-gradient(to bottom, #009788 15%, #dbdbd3 15%);
 }
 
-.container{
+.container {
   width: 80%;
   min-width: 950px;
   height: 95%;
@@ -72,43 +72,41 @@ img{
   background: #fff;
 }
 
-/* SIDEBAR */
+/* Sidebar Classes */
 
-.sidebar{
+.sidebar {
   width: 35%;
   height: 100%;
   background: #eaeaea;
 }
 
-/* sidebar top */
-
-.sidebar-top{
+.sidebar-top {
   min-height: 150px;
   top: 0;
 }
 
-.user-box{
+.user-box {
   min-height: 70px;
   padding: 10px;
 }
 
-.user-box a img{
+.user-box a img {
   vertical-align: -18px;
 }
 
-.user-box a i{
+.user-box a i {
   font-size: 20px;
   margin: 15px 10px 10px 10px;
   color: #b1b1b1;
 }
 
-.notifications-box{
+.notifications-box {
   height: 80px;
   padding: 15px;
   background: #8edafc;
 }
 
-.notifications-icon{
+.notifications-icon {
   width: 50px;
   display: inline-block;
   text-align: center;
@@ -116,13 +114,13 @@ img{
   background: #fff;
 }
 
-.notifications-icon a i{
+.notifications-icon a i {
   font-size: 20px;
   margin-top: 15px;
   color: #8edafc;
 }
 
-.notifications-text{
+.notifications-text {
   display: inline-block;
   height: 60px;
   margin-left: 10px;
@@ -130,135 +128,133 @@ img{
   vertical-align: -5px;
 }
 
-.notifications-text a{
+.notifications-text a {
   color: #498ba6;
 }
 
-/* sidebar bottom */
+/* -------------------------------------- */
 
-.sidebar-bottom{
+.sidebar-bottom {
   height: calc(100% - 150px);
   bottom: 0;
 }
 
-.search{
+.search {
   text-align: center;
   padding-top: 12px;
   background: #fafafa;
 }
 
-.search a i{
+.search a i {
   top: 17px;
   left: 30px;
   color: #b9b9b9;
 }
 
-.search input{
+.search input {
   width: calc(100% - 30px);
   padding: 5px 10px 5px 50px;
   border: none;
   border-radius: 3px;
 }
 
-.chats{
+.chats {
   height: calc(100% - 50px);
   background: #fff;
 }
 
-.chat-box{
+.chat-box {
   height: 80px;
   padding: 10px 0 10px 15px;
   border-bottom: 2px solid #fafafa;
 }
 
-.chat-box a img{
+.chat-box a img {
   height: 60px;
   margin-right: 15px;
   vertical-align: top;
 }
 
-.chat-box:hover{
+.chat-box:hover {
   background: #dadcdc;
   cursor: pointer;
 }
 
-.last-message-hour{
+.last-message-hour {
   font-size: 10px;
   color: #ccc;
   right: 10px;
   top: 12px;
 }
 
-.conversation-box{
+.conversation-box {
   width: 200px;
   left: 90px;
   display: inline-block;
   overflow: hidden;
 }
 
-.prev-text{
+.prev-text {
   top: 20px;
   font-size: 13px;
   color: #ccc;
 }
 
-.chat-box:hover .prev-text, .chat-box:hover .last-message-hour{
+.chat-box:hover .prev-text, .chat-box:hover .last-message-hour {
   color: #828084;
 }
 
-/* MAIN */
+/* Main Classes */
 
-.main{
+.main {
   width: calc(100% - 35%);
   height: 100%;
   border-left: 1px solid #dadcdc;
 }
 
-/* main top */
-
-.main-top{
+.main-top {
   min-height: 70px;
   padding: 8px 10px;
   background: #eaeaea;
 }
 
-.main-top a img{
+.main-top a img {
   margin-right: 10px;
   vertical-align: -7px;
 }
 
-.conversation-header{
+.conversation-header {
   display: inline-block;
 }
 
-.name{
+.name {
   font-size: 16px;
 }
 
-.last-seen{
+.last-seen {
   font-size: 12px;
   color: #828084;
 }
 
-.main-top a i{
+.main-top a i {
   font-size: 20px;
   margin: 15px 10px 10px 10px;
   color: #b1b1b1;
 }
 
-/* main center */
+/* -------------------------------------- */
 
-.main-center{
+.main-center {
   height: calc(100% - 150px);
   background: url("../img/chat-background.jpg");
 }
 
-.messages-box{
+.messages-box {
   height: 100%;
   padding: 20px;
 }
 
-.text-box{
+.text-box {
   clear: both;
   width: 200px;
   margin-bottom: 5px;
@@ -268,7 +264,7 @@ img{
   word-wrap: break-word;
 }
 
-.menu-container i{
+.menu-container i {
   top: 10px;
   right: 10px;
   color: #828084;
@@ -276,11 +272,11 @@ img{
   cursor: pointer;
 }
 
-.text-box:hover .menu-container i{
+.text-box:hover .menu-container i {
   display: block;
 }
 
-.menu{
+.menu {
   top: 25px;
   right: -10px;
   border-radius: 5px;
@@ -291,45 +287,45 @@ img{
   color: #828084;
 }
 
-.menu div:hover{
+.menu div:hover {
   color: #000;
 }
 
-.menu div:first-child{
+.menu div:first-child {
   padding-bottom: 7px;
   border-bottom: 1px solid #828084;
   cursor: pointer;
 }
 
-.menu div:last-child{
+.menu div:last-child {
   padding-top: 5px;
   cursor: pointer;
 }
 
-.text{
+.text {
   margin-bottom: 15px;
 }
 
-.hour{
+.hour {
   right: 10px;
   bottom: 10px;
   font-size: 10px;
   color: #828084;
 }
 
-.user-messages{
+.user-messages {
   float: right;
   background: #d9f8bf;
 }
 
-.contact-messages{
+.contact-messages {
   float: left;
   background: #fff;
 }
 
-/* main bottom */
+/* -------------------------------------- */
 
-.main-bottom{
+.main-bottom {
   position: fixed;
   width: calc(100% - 35%);
   min-height: 80px;
@@ -337,13 +333,13 @@ img{
   background: #eaeaea;
 }
 
-.main-bottom a i{
+.main-bottom a i {
   color: #737678;
   font-size: 25px;
   margin-top: 15px;
 }
 
-.main-bottom input{
+.main-bottom input {
   width: 90%;
   padding: 15px;
   border: none;
